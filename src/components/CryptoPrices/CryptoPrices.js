@@ -20,7 +20,10 @@ const CryptoPrices = () => {
         );
 
         if (response.data) {
-          setPreviousPrices(prices); // Store the previous price before updating
+          // ✅ Only update previous prices if prices already exist
+          if (Object.keys(prices).length > 0) {
+            setPreviousPrices(prices);
+          }
           setPrices(response.data);
         }
         setIsLoading(false);
@@ -31,10 +34,10 @@ const CryptoPrices = () => {
     };
 
     fetchPrices();
-    const interval = setInterval(fetchPrices, 300000); // Refresh every 5 minutes
+    const interval = setInterval(fetchPrices, 300000); // Refresh every 5 min
 
     return () => clearInterval(interval);
-  }, ); 
+  }, [prices]); // ✅ Added prices dependency to ensure updates
 
   const calculatePercentageChange = (currentPrice, previousPrice) => {
     if (!currentPrice || !previousPrice || previousPrice === 0) return 0;
@@ -42,7 +45,7 @@ const CryptoPrices = () => {
   };
 
   const renderPriceChangeIndicator = (currentPrice, previousPrice) => {
-    if (!currentPrice || !previousPrice) return null;
+    if (!previousPrice) return null; // 🔥 Don't show if no previous data
 
     const percentageChange = calculatePercentageChange(currentPrice, previousPrice)?.toFixed(2);
 
