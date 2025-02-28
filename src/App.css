@@ -1,0 +1,15 @@
+@import "tailwindcss";
+/* src/index.css 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*/
+
+body {
+    background-image: url('/public/images/body-bg-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Makes it static */
+  }
+
+  

@@ -1,0 +1,44 @@
+/* MovingCoins.css */
+
+.moving-coins {
+  display: flex;
+  width: max-content; /* Automatically adjust width */
+  animation: scroll-left 30s linear infinite; /* Slow, smooth animation */
+}
+  
+  .coin-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .coin-image {
+    width: 40px;
+    height: 40px;
+    border: 4px solid white;
+  }
+  
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }  /* Start at normal position */
+    100% { transform: translateX(-50%); } /* Move left only halfway */
+}
+
+@media (max-width: 375px) {
+  
+  .movingCoinsDiv{
+    height: 41px;
+  }
+
+  .moving-coins{
+    height: 41px;
+    gap: 15px;
+  }
+
+  .coin-image {
+    width: 30px;
+    height: 30px;
+    border: 4px solid white;
+  }
+    
+}
+  

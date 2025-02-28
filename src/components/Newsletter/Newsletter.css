@@ -1,0 +1,30 @@
+/* Custom CSS for responsive layout */
+.newsletter-container {
+    display: flex;
+    flex-direction: column; /* Default column layout */
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  /* Form layout */
+  .newsletter-form {
+    display: flex;
+    flex-direction: column; /* Default column */
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  /* Responsive layout: Row on medium and large screens */
+  @media (min-width: 768px) {
+    .newsletter-container {
+      flex-direction: row;
+    }
+  
+    .newsletter-form {
+      flex-direction: row;
+      width: auto;
+    }
+  }
+  
