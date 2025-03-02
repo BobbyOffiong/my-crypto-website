@@ -4,18 +4,3 @@
       display: none !important; /* Arrows will be hidden on small screens */
     }
   }
-
-.text-section-div{
-    width: inherit;
-}
-
-.text-div{
-    width: 100%;
-}
-  
-.Xchange{
-    margin-left: -4px;
-}
-
-/*handling the slide section on small screens*/
-
