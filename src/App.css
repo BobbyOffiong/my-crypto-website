@@ -12,6 +12,10 @@ body {
     background-attachment: fixed; /* Makes it static */
   }
 
+.Xchange{
+    margin-left: -4px;
+}
+
 /* header.css */
 .fab {
     font-family: "Font Awesome 5 Brands";
