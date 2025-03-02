@@ -46,7 +46,7 @@ export default function SlideSection() {
   }, []);
 
   return (
-    <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px] SlideSection">
+    <div className="relative w-full overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px] SlideSection">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
