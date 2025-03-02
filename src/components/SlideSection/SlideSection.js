@@ -117,8 +117,6 @@ export default function SlideSection() {
                 alt="Slide Visual"
                 className="h-full w-full object-cover object-center"
               />
-              {/* White Background Overlay Inside Image */}
-              <div className="absolute inset-0 bg-white opacity-50"></div>
             </div>
           </div>
         </div>
