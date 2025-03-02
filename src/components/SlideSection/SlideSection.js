@@ -59,7 +59,7 @@ export default function SlideSection() {
           <div className="md:hidden relative w-full h-full">
             <img src={slide.image} alt="Slide Visual" className="h-full w-full object-cover object-center" />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-6">
+            <div className="absolute inset-0 bg-white bg-opacity-30 flex flex-col items-center justify-center text-center text-white px-6">
               <h1 className="text-3xl font-bold">{slide.title}</h1>
               <p className="mt-2 text-sm">{slide.subtitle}</p>
               <button
