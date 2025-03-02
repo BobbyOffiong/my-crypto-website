@@ -56,28 +56,7 @@ export default function SlideSection() {
           }`}
         >
           <div className="grid md:grid-cols-2 h-full">
-            {/* Text Div */}
-            <div className="md:text-center md:text-left w-full md:relative text-div">
-              <div className="absolute top-1/2 -translate-y-1/2 transform left-1/2 -translate-x-1/2 w-full text-section-div text-center">
-                <h1 className="text-4xl md:text-6xl font-bold text-gray-800 w-full slide-heading">
-                  <span className="text-orange-300 orange-slide-text">{slide.title.split(" ")[0]}</span>{" "}
-                  {slide.title.split(" ").slice(1).join(" ")}
-                </h1>
-                <p className="mt-2 text-sm md:text-lg text-gray-600 slide-subtitle">{slide.subtitle}</p>
-
-                {/* Button with toggle */}
-                <button
-                  onClick={() => setIsClicked(!isClicked)}
-                  className={`cursor-pointer mt-4 px-4 pt-2 pb-2 text-white rounded-lg shadow hover:bg-orange-300 transition ${
-                    isClicked ? "bg-orange-300" : "bg-blue-500"
-                  }`}
-                >
-                  Learn More
-                </button>
-              </div>
-            </div>
-
-            {/* Image Div (Now with separate overlay) */}
+            {/* Image Div */}
             <div className="w-full h-full md:h-full image-container relative">
               {/* Image */}
               <img
@@ -87,7 +66,26 @@ export default function SlideSection() {
               />
 
               {/* White Opacity Overlay (Only on Small Screens) */}
-              <div className="absolute inset-0 bg-white opacity-50 sm:opacity-0 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-white opacity-50 sm:opacity-0 z-0 pointer-events-none"></div>
+            </div>
+
+            {/* Text Div (Ensures text stays visible above the overlay) */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-800 w-full slide-heading">
+                <span className="text-orange-300 orange-slide-text">{slide.title.split(" ")[0]}</span>{" "}
+                {slide.title.split(" ").slice(1).join(" ")}
+              </h1>
+              <p className="mt-2 text-sm md:text-lg text-gray-600 slide-subtitle">{slide.subtitle}</p>
+
+              {/* Button with toggle */}
+              <button
+                onClick={() => setIsClicked(!isClicked)}
+                className={`cursor-pointer mt-4 px-4 pt-2 pb-2 text-white rounded-lg shadow hover:bg-orange-300 transition ${
+                  isClicked ? "bg-orange-300" : "bg-blue-500"
+                }`}
+              >
+                Learn More
+              </button>
             </div>
           </div>
         </div>
