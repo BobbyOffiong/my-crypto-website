@@ -69,7 +69,7 @@ export default function SlideSection() {
 
             {/* Dark Texts Over Image */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-              <h1 className="text-5xl font-bold text-orange-300">{slide.title}</h1>
+              <h1 className="text-5xl font-bold slide-title-color">{slide.title}</h1>
               <p className="mt-2 text-lg text-gray-700 font-bold">{slide.subtitle}</p>
               <button
                 onMouseDown={(e) => e.currentTarget.classList.add("bg-orange-300")}
