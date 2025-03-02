@@ -55,18 +55,36 @@ export default function SlideSection() {
             index === currentSlide ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
           }`}
         >
-          {/* Main Grid Layout */}
-          <div className="grid md:grid-cols-2 h-full items-center">
+          {/* Mobile & Tablet (md and below): Text Over Image */}
+          <div className="md:hidden relative w-full h-full">
+            <img src={slide.image} alt="Slide Visual" className="h-full w-full object-cover object-center" />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-6">
+              <h1 className="text-3xl font-bold">{slide.title}</h1>
+              <p className="mt-2 text-sm">{slide.subtitle}</p>
+              <button
+                onClick={() => setIsClicked(!isClicked)}
+                className={`cursor-pointer mt-4 px-4 py-2 rounded-lg shadow transition ${
+                  isClicked ? "bg-orange-300" : "bg-blue-500"
+                }`}
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop (md and above): Text Left, Image Right */}
+          <div className="hidden md:grid md:grid-cols-2 h-full items-center">
             {/* Text Section */}
-            <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left px-6 md:px-12 z-10">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-800">
+            <div className="flex flex-col items-start justify-center text-left px-12">
+              <h1 className="text-4xl font-bold text-gray-800">
                 <span className="text-orange-300">{slide.title.split(" ")[0]}</span>{" "}
                 {slide.title.split(" ").slice(1).join(" ")}
               </h1>
-              <p className="mt-2 text-sm md:text-lg text-gray-600">{slide.subtitle}</p>
+              <p className="mt-2 text-lg text-gray-600">{slide.subtitle}</p>
               <button
                 onClick={() => setIsClicked(!isClicked)}
-                className={`cursor-pointer mt-4 px-4 py-2 text-white rounded-lg shadow hover:bg-orange-300 transition ${
+                className={`cursor-pointer mt-4 px-4 py-2 text-white rounded-lg shadow transition ${
                   isClicked ? "bg-orange-300" : "bg-blue-500"
                 }`}
               >
@@ -75,15 +93,8 @@ export default function SlideSection() {
             </div>
 
             {/* Image Section */}
-            <div className="relative w-full h-full">
-              {/* Image */}
-              <img
-                src={slide.image}
-                alt="Slide Visual"
-                className="h-[400px] md:h-full w-full object-cover object-center"
-              />
-              {/* White Opacity Overlay (Only on Small Screens) */}
-              <div className="absolute inset-0 bg-white opacity-50 sm:hidden"></div>
+            <div className="w-full h-full">
+              <img src={slide.image} alt="Slide Visual" className="h-full w-full object-cover object-center" />
             </div>
           </div>
         </div>
