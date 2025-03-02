@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './SlideSection.css';
 
+const [isClicked, setIsClicked] = useState(false);
+
 const slides = [
   {
     id: 1,
@@ -64,7 +66,9 @@ export default function SlideSection() {
                   {slide.title.split(' ').slice(1).join(' ')}
                 </h1>
                 <p className="mt-2 text-sm md:text-lx text-gray-600 slide-subtitle">{slide.subtitle}</p>
-                <button className="cursor-pointer mt-4 px-4 pt-1 pb-2 bg-blue-500 text-white rounded-lg shadow hover:bg-orange-300 transition">
+                <button onClick={() => setIsClicked(!isClicked)}
+                  className="cursor-pointer mt-4 px-4 pt-2 pb-2 text-white rounded-lg shadow hover:bg-orange-300 transition
+                    `${isClicked ? "bg-orange-300" : "bg-blue-500"}`">
                   Learn More
                 </button>
               </div>
@@ -75,7 +79,7 @@ export default function SlideSection() {
               <img
                 src={slide.image}
                 alt="Slide Visual"
-                className="h-[400px] md:h-full w-full object-cover object-center"
+                className="h-[400px] md:h-full w-full object-cover object-center absolute inset-0 bg-white opacity-50 sm:opacity-0"
               />
             </div>
           </div>
