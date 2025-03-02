@@ -66,7 +66,7 @@ export default function SlideSection() {
               />
 
               {/* White Opacity Overlay (Only on Small Screens) */}
-              <div className="absolute inset-0 bg-white opacity-50 sm:opacity-0 z-0 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-white opacity-50 md:opacity-0 z-0 pointer-events-none"></div>
             </div>
 
             {/* Text Div (Ensures text stays visible above the overlay) */}
