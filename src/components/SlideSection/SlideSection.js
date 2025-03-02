@@ -55,29 +55,25 @@ export default function SlideSection() {
             index === currentSlide ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
           }`}
         >
-          <div className="grid md:grid-cols-2 h-full">
+          <div className="grid md:grid-cols-2 h-full md:flex md:flex-row-reverse">
             {/* Image Div */}
             <div className="w-full h-full md:h-full image-container relative">
-              {/* Image */}
               <img
                 src={slide.image}
                 alt="Slide Visual"
                 className="h-[400px] md:h-full w-full object-cover object-center"
               />
-
               {/* White Opacity Overlay (Only on Small Screens) */}
               <div className="absolute inset-0 bg-white opacity-50 md:opacity-0 z-0 pointer-events-none"></div>
             </div>
 
-            {/* Text Div (Ensures text stays visible above the overlay) */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-6">
+            {/* Text Div */}
+            <div className="flex flex-col items-center justify-center text-center px-6 z-10">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-800 w-full slide-heading">
                 <span className="text-orange-300 orange-slide-text">{slide.title.split(" ")[0]}</span>{" "}
                 {slide.title.split(" ").slice(1).join(" ")}
               </h1>
               <p className="mt-2 text-sm md:text-lg text-gray-600 slide-subtitle">{slide.subtitle}</p>
-
-              {/* Button with toggle */}
               <button
                 onClick={() => setIsClicked(!isClicked)}
                 className={`cursor-pointer mt-4 px-4 pt-2 pb-2 text-white rounded-lg shadow hover:bg-orange-300 transition ${
