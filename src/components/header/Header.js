@@ -34,7 +34,7 @@ const Header = () => {
             <a
               key={index}
               href={social.href}
-              className="hover:text-orange-300 focus:text-orange-300 transition"
+              className="hover:text-orange-300 active:text-orange-300 focus:text-orange-300 transition"
             >
               <i className={`${social.icon} transition-all`}></i>
             </a>
@@ -76,7 +76,7 @@ const Header = () => {
             <Link
               key={item}
               to={`/${item}`}
-              className="hover:text-orange-300 focus:text-orange-300 transition"
+              className="hover:text-orange-300 active:text-orange-300 focus:text-orange-300 transition"
             >
               {polyglot.t(item)}
             </Link>
@@ -87,7 +87,7 @@ const Header = () => {
         <div className="md:hidden">
           <button
             onClick={toggleMobileMenu}
-            className="text-white hover:text-orange-300 focus:text-orange-300 transition"
+            className="text-white hover:text-orange-300 active:text-orange-300 focus:text-orange-300 transition"
           >
             <i className="fas fa-bars"></i>
           </button>
@@ -96,7 +96,7 @@ const Header = () => {
               <div className="flex justify-end p-4">
                 <button
                   onClick={toggleMobileMenu}
-                  className="text-white text-2xl hover:text-orange-300 focus:text-orange-300 transition"
+                  className="text-white text-2xl hover:text-orange-300 active:text-orange-300 focus:text-orange-300 transition"
                 >
                   &times;
                 </button>
@@ -106,7 +106,7 @@ const Header = () => {
                   <li key={item}>
                     <Link
                       to={`/${item}`}
-                      className="hover:text-orange-300 focus:text-orange-300 transition"
+                      className="hover:text-orange-300 active:text-orange-300 focus:text-orange-300 transition"
                     >
                       {polyglot.t(item)}
                     </Link>
