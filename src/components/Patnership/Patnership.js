@@ -11,11 +11,10 @@ const Partnership = () => {
     return (
       <div className="py-16 px-6 md:px-16 text-center bg-white">
         <h2 className="text-3xl md:text-5xl font-bold text-black">
-          Currencyzen <span className="text-orange-300">for Good</span>
+          BOBXCHANGE <span className="text-orange-300">for Good</span>
         </h2>
         <p className="mt-4 text-grey-600">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-          doloremque laudantium, totam rem.
+        You can build trust in your crypto company by highlighting your strong partnerships with reputable companies.
         </p>
   
         {/* Partners Logos */}
