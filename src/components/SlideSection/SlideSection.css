@@ -19,28 +19,3 @@
 
 /*handling the slide section on small screens*/
 
-@media (max-width: 375px) {
-  .SlideSection{
-  }
-  .image-container {
-    position: relative; /* Ensures text can layer above */
-  }
-
-  .image-container img {
-    opacity: 0.4;
-  }
-
-  .text-section-div {
-    position: absolute;
-    top: 70%;
-    left: 100%;
-    transform: translate(-50%, -50%);
-    z-index: 10; /* Ensures text stays on top */
-  }
-
-  .slide-subtitle{
-    font-weight: bold;
-    color: rgb(81, 80, 80);
-  }
-    
-}
