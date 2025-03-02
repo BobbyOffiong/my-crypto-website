@@ -4,3 +4,7 @@
       display: none !important; /* Arrows will be hidden on small screens */
     }
   }
+
+.slide-title-color{
+    color: rgb(210, 140, 35);
+}
