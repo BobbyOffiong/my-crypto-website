@@ -64,17 +64,16 @@ export default function SlideSection() {
                 className="h-full w-full object-cover object-center" 
               />
               {/* White Background Overlay Inside Image */}
-              <div className="absolute inset-0 bg-white opacity-40"></div>
+              <div className="absolute inset-0 bg-white opacity-50"></div>
             </div>
 
             {/* Dark Texts Over Image */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-              <h1 className="text-5xl font-bold slide-title-color">{slide.title}</h1>
+              <h1 className="text-5xl font-bold text-orange-300">{slide.title}</h1>
               <p className="mt-2 text-lg text-gray-700 font-bold">{slide.subtitle}</p>
               <button
-                onMouseDown={(e) => e.currentTarget.classList.add("bg-orange-300")}
-                onMouseUp={(e) => e.currentTarget.classList.remove("bg-orange-300")}
-                className="cursor-pointer mt-4 px-4 py-2 rounded-lg shadow bg-blue-500 text-white hover:bg-orange-300 transition"
+                className="cursor-pointer mt-4 px-4 py-2 rounded-lg shadow bg-blue-500 text-white 
+                           hover:bg-orange-300 active:bg-orange-300 focus:bg-orange-300 transition"
               >
                 Learn More
               </button>
@@ -91,9 +90,8 @@ export default function SlideSection() {
               </h1>
               <p className="mt-2 text-gray-600 font-bold">{slide.subtitle}</p>
               <button
-                onMouseDown={(e) => e.currentTarget.classList.add("bg-orange-300")}
-                onMouseUp={(e) => e.currentTarget.classList.remove("bg-orange-300")}
-                className="cursor-pointer mt-4 px-4 py-2 rounded-lg shadow bg-blue-500 text-white hover:bg-orange-300 transition"
+                className="cursor-pointer mt-4 px-4 py-2 rounded-lg shadow bg-blue-500 text-white 
+                           hover:bg-orange-300 active:bg-orange-300 focus:bg-orange-300 transition"
               >
                 Learn More
               </button>
@@ -115,7 +113,7 @@ export default function SlideSection() {
 
       {/* Left Arrow */}
       <button
-        className=" cursor-pointer arrow-btn absolute left-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 md:block"
+        className="cursor-pointer arrow-btn absolute left-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 md:block"
         onClick={prevSlide}
       >
         <ChevronLeft className="w-6 h-6 text-gray-700" />
