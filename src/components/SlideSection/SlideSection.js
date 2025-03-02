@@ -64,12 +64,12 @@ export default function SlideSection() {
                 className="h-full w-full object-cover object-center" 
               />
               {/* White Background Overlay Inside Image */}
-              <div className="absolute inset-0 bg-white opacity-40"></div>
+              <div className="absolute inset-0 bg-white opacity-30"></div>
             </div>
 
             {/* Dark Texts Over Image */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-              <h1 className="text-4xl font-bold text-orange-300">{slide.title}</h1>
+              <h1 className="text-5xl font-bold text-orange-300">{slide.title}</h1>
               <p className="mt-2 text-sm text-gray-700 font-bold">{slide.subtitle}</p>
               <button
                 onMouseDown={(e) => e.currentTarget.classList.add("bg-orange-300")}
