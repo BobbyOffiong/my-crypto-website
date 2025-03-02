@@ -71,7 +71,7 @@ const Header = () => {
         </div>
 
         {/* Navigation Menu */}
-        <nav className="space-x-6 md:hidden lg:block">
+        <nav className="space-x-6 lg:block">
           <Link to="/" className="hover:text-orange-200">{polyglot.t("home")}</Link>
           <Link to="/about" className="hover:text-orange-200">{polyglot.t("about")}</Link>
           <Link to="/services" className="hover:text-orange-200">{polyglot.t("services")}</Link>
