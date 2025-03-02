@@ -8,11 +8,17 @@
     font-weight: 900;
   }
 
+/*NAV MENU OFF AT 1020px*/
+@media (max-width: 1020px) {
+    .nav-menu{
+        display: none;
+    }
+}
 
   /*CRYPTO PRICES NO DISPLAY*/
   @media (max-width: 375px) {
     .crypto-prices {
-      display: none !important;
+      display: none;
     }
   }
   
