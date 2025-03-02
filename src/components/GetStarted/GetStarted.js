@@ -4,7 +4,7 @@ import "./GetStarted.css";
 
 const GetStarted = () => {
   return (
-    <section className="relative bg-white py-16 px-4 md:px-12 lg:px-24 get-started-section">
+    <section className="relative bg-white pt-5 pb-10 px-4 md:px-12 lg:px-24 get-started-section">
       <div className="absolute inset-0">
         <img
           src="/images/HomePage images/GetStartedSection/dotted-world-map.jpg"

@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import './SlideSection.css';
+import React, { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useSwipeable } from "react-swipeable";
+import "./SlideSection.css";
 
 const slides = [
   {
     id: 1,
     title: "Crypto Currency Investments",
     subtitle: "Looking for a Cryptocurrency First-Class Expert?...",
-    image: "/images/HomePage images/SlideSection/cryptocurrency.jpg", // Placeholder image
+    image: "/images/HomePage images/SlideSection/cryptocurrency.jpg",
   },
   {
     id: 2,
@@ -40,43 +41,84 @@ export default function SlideSection() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  // Auto-slide every 8 seconds
   useEffect(() => {
     const interval = setInterval(nextSlide, 8000);
     return () => clearInterval(interval);
   }, []);
 
+  // Handle swipe gestures (left and right)
+  const handlers = useSwipeable({
+    onSwipedLeft: nextSlide,
+    onSwipedRight: prevSlide,
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
+
   return (
-    <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px] SlideSection">
+    <div
+      {...handlers}
+      className="relative h-[400px] w-full overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px] SlideSection"
+    >
       {slides.map((slide, index) => (
         <div
           key={slide.id}
           className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
-            index === currentSlide ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+            index === currentSlide ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
           }`}
         >
-          <div className="grid md:grid-cols-2 h-full">
-            {/* Text Div*/}
-            <div className="md:text-center md:text-left w-full md:relative text-div">
-              <div className="absolute top-1/2 -translate-y-1/2 transform left-1/2 -translate-x-1/2 w-full text-section-div
-              text-center">
-                <h1 className="text-4xl md:text-6xl font-bold text-gray-800 w-full slide-heading">
-                  <span className="text-orange-300 orange-slide-text">{slide.title.split(' ')[0]}</span>{' '}
-                  {slide.title.split(' ').slice(1).join(' ')}
-                </h1>
-                <p className="mt-2 text-sm md:text-lx text-gray-600 slide-subtitle">{slide.subtitle}</p>
-                <button className="cursor-pointer mt-4 px-4 pt-1 pb-2 bg-blue-500 text-white rounded-lg shadow hover:bg-orange-300 transition">
-                  Learn More
-                </button>
-              </div>
-            </div>
-
-            {/* Image Div */}
-            <div className="w-full h-full md:h-full image-container">
+          {/* Mobile & Tablet (md and below): Text Over Image */}
+          <div className="md:hidden relative w-full h-full">
+            {/* Image */}
+            <div className="relative w-full h-full">
               <img
                 src={slide.image}
                 alt="Slide Visual"
                 className="h-full w-full object-cover object-center"
               />
+              {/* White Background Overlay Inside Image */}
+              <div className="absolute inset-0 bg-white opacity-50"></div>
+            </div>
+
+            {/* Dark Texts Over Image */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
+              <h1 className="text-5xl font-bold text-orange-300">{slide.title}</h1>
+              <p className="mt-2 text-lg text-gray-700 font-bold">{slide.subtitle}</p>
+              <button
+                className="cursor-pointer mt-4 px-4 py-2 rounded-lg shadow bg-blue-500 text-white 
+                           hover:bg-orange-300 active:bg-orange-300 focus:bg-orange-300 transition"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop (md and above): Text Left, Image Right */}
+          <div className="md:grid md:grid-cols-2 h-full">
+            {/* Text Section */}
+            <div className="flex flex-col items-center justify-center px-12">
+              <h1 className="text-6xl font-bold text-gray-800 text-center">
+                <span className="text-orange-300">{slide.title.split(" ")[0]}</span>{" "}
+                {slide.title.split(" ").slice(1).join(" ")}
+              </h1>
+              <p className="mt-2 text-gray-600 font-bold">{slide.subtitle}</p>
+              <button
+                className="cursor-pointer mt-4 px-4 py-2 rounded-lg shadow bg-blue-500 text-white 
+                           hover:bg-orange-300 active:bg-orange-300 focus:bg-orange-300 transition"
+              >
+                Learn More
+              </button>
+            </div>
+
+            {/* Image Section */}
+            <div className="relative w-full h-full">
+              <img
+                src={slide.image}
+                alt="Slide Visual"
+                className="h-full w-full object-cover object-center"
+              />
+              {/* White Background Overlay Inside Image */}
+              <div className="absolute inset-0 bg-white opacity-50"></div>
             </div>
           </div>
         </div>
@@ -84,7 +126,7 @@ export default function SlideSection() {
 
       {/* Left Arrow */}
       <button
-        className="cursor-pointer arrow-btn absolute left-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 sm:hidden md:block"
+        className="cursor-pointer arrow-btn absolute left-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 md:block"
         onClick={prevSlide}
       >
         <ChevronLeft className="w-6 h-6 text-gray-700" />
@@ -92,7 +134,7 @@ export default function SlideSection() {
 
       {/* Right Arrow */}
       <button
-        className="cursor-pointer arrow-btn absolute right-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 sm:hidden md:block"
+        className="cursor-pointer arrow-btn absolute right-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 md:block"
         onClick={nextSlide}
       >
         <ChevronRight className="w-6 h-6 text-gray-700" />
