@@ -46,7 +46,7 @@ export default function SlideSection() {
   }, []);
 
   return (
-    <div className="relative h-[300px] w-full overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px] SlideSection">
+    <div className="relative h-[400px] w-full overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px] SlideSection">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -75,7 +75,7 @@ export default function SlideSection() {
               <img
                 src={slide.image}
                 alt="Slide Visual"
-                className="h-full w-full object-cover object-center"
+                className="h-[400px] md:h-full w-full object-cover object-center"
               />
             </div>
           </div>
