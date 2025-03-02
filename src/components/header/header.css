@@ -3,6 +3,7 @@
   font-family: "Font Awesome 5 Brands";
 }
 
+<<<<<<< HEAD
 .fas {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -16,6 +17,24 @@
 @media (max-width: 1020px) {
   .nav-menu{
       display: none;
+=======
+.Xchange{
+    margin-left: -4px;
+}
+
+/*NAV MENU OFF AT 1020px*/
+@media (max-width: 1020px) {
+    .nav-menu{
+        display: none;
+    }
+}
+
+  /*CRYPTO PRICES NO DISPLAY*/
+  @media (max-width: 660px) {
+    .crypto-prices {
+      display: none;
+    }
+>>>>>>> 04ab0e1859beb6b355f8f622152f829d06e5c94e
   }
 }
 
@@ -24,6 +43,7 @@
   .crypto-prices {
     display: none;
   }
+<<<<<<< HEAD
 }
 
 /*DROPDOWN MENU TEXTS*/
@@ -36,3 +56,6 @@
   text-align: center;
   z-index: 1000;
 }
+=======
+  
+>>>>>>> 04ab0e1859beb6b355f8f622152f829d06e5c94e
