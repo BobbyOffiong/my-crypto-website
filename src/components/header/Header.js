@@ -66,12 +66,12 @@ const Header = () => {
         </div>
 
         {/* Cryptocurrency Prices - Visible on large screens */}
-        <div className="crypto-prices block">
+        <div className="crypto-prices">
           <CryptoPrices />
         </div>
 
         {/* Navigation Menu */}
-        <nav className="md:flex space-x-6">
+        <nav className="space-x-6">
           <Link to="/" className="hover:text-orange-200">{polyglot.t("home")}</Link>
           <Link to="/about" className="hover:text-orange-200">{polyglot.t("about")}</Link>
           <Link to="/services" className="hover:text-orange-200">{polyglot.t("services")}</Link>
