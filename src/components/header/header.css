@@ -16,7 +16,7 @@
 }
 
   /*CRYPTO PRICES NO DISPLAY*/
-  @media (max-width: 375px) {
+  @media (max-width: 660px) {
     .crypto-prices {
       display: none;
     }
