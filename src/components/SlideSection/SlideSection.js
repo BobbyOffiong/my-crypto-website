@@ -97,7 +97,7 @@ export default function SlideSection() {
           <div className="md:grid md:grid-cols-2 h-full">
             {/* Text Section */}
             <div className="flex flex-col items-center justify-center px-12">
-              <h1 className="text-6xl font-bold text-gray-800 text-center">
+              <h1 className="text-6xl font-bold text-gray-700 text-center">
                 <span className="text-orange-300">{slide.title.split(" ")[0]}</span>{" "}
                 {slide.title.split(" ").slice(1).join(" ")}
               </h1>
