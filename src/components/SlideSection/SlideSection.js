@@ -47,7 +47,7 @@ export default function SlideSection() {
   }, []);
 
   return (
-    <div className="relative h-[400px] w-full overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px] SlideSection">
+    <div className="relative h-[400px] w-full overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px]">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -55,33 +55,35 @@ export default function SlideSection() {
             index === currentSlide ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
           }`}
         >
-          <div className="grid md:grid-cols-2 h-full md:flex md:flex-row-reverse">
-            {/* Image Div */}
-            <div className="w-full h-full md:h-full image-container relative">
+          {/* Main Grid Layout */}
+          <div className="grid md:grid-cols-2 h-full items-center">
+            {/* Text Section */}
+            <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left px-6 md:px-12 z-10">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-800">
+                <span className="text-orange-300">{slide.title.split(" ")[0]}</span>{" "}
+                {slide.title.split(" ").slice(1).join(" ")}
+              </h1>
+              <p className="mt-2 text-sm md:text-lg text-gray-600">{slide.subtitle}</p>
+              <button
+                onClick={() => setIsClicked(!isClicked)}
+                className={`cursor-pointer mt-4 px-4 py-2 text-white rounded-lg shadow hover:bg-orange-300 transition ${
+                  isClicked ? "bg-orange-300" : "bg-blue-500"
+                }`}
+              >
+                Learn More
+              </button>
+            </div>
+
+            {/* Image Section */}
+            <div className="relative w-full h-full">
+              {/* Image */}
               <img
                 src={slide.image}
                 alt="Slide Visual"
                 className="h-[400px] md:h-full w-full object-cover object-center"
               />
               {/* White Opacity Overlay (Only on Small Screens) */}
-              <div className="absolute inset-0 bg-white opacity-50 md:opacity-0 z-0 pointer-events-none"></div>
-            </div>
-
-            {/* Text Div */}
-            <div className="flex flex-col items-center justify-center text-center px-6 z-10">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-800 w-full slide-heading">
-                <span className="text-orange-300 orange-slide-text">{slide.title.split(" ")[0]}</span>{" "}
-                {slide.title.split(" ").slice(1).join(" ")}
-              </h1>
-              <p className="mt-2 text-sm md:text-lg text-gray-600 slide-subtitle">{slide.subtitle}</p>
-              <button
-                onClick={() => setIsClicked(!isClicked)}
-                className={`cursor-pointer mt-4 px-4 pt-2 pb-2 text-white rounded-lg shadow hover:bg-orange-300 transition ${
-                  isClicked ? "bg-orange-300" : "bg-blue-500"
-                }`}
-              >
-                Learn More
-              </button>
+              <div className="absolute inset-0 bg-white opacity-50 sm:hidden"></div>
             </div>
           </div>
         </div>
@@ -89,7 +91,7 @@ export default function SlideSection() {
 
       {/* Left Arrow */}
       <button
-        className="cursor-pointer arrow-btn absolute left-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 sm:hidden md:block"
+        className="cursor-pointer absolute left-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 sm:hidden md:block"
         onClick={prevSlide}
       >
         <ChevronLeft className="w-6 h-6 text-gray-700" />
@@ -97,7 +99,7 @@ export default function SlideSection() {
 
       {/* Right Arrow */}
       <button
-        className="cursor-pointer arrow-btn absolute right-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 sm:hidden md:block"
+        className="cursor-pointer absolute right-6 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-orange-300 sm:hidden md:block"
         onClick={nextSlide}
       >
         <ChevronRight className="w-6 h-6 text-gray-700" />
