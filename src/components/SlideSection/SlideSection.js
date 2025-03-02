@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import './SlideSection.css';
-
-const [isClicked, setIsClicked] = useState(false);
+import React, { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import "./SlideSection.css";
 
 const slides = [
   {
     id: 1,
     title: "Crypto Currency Investments",
     subtitle: "Looking for a Cryptocurrency First-Class Expert?...",
-    image: "/images/HomePage images/SlideSection/cryptocurrency.jpg", // Placeholder image
+    image: "/images/HomePage images/SlideSection/cryptocurrency.jpg",
   },
   {
     id: 2,
@@ -33,6 +31,7 @@ const slides = [
 
 export default function SlideSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isClicked, setIsClicked] = useState(false); // ✅ Move state inside component
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -53,22 +52,26 @@ export default function SlideSection() {
         <div
           key={slide.id}
           className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
-            index === currentSlide ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+            index === currentSlide ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
           }`}
         >
           <div className="grid md:grid-cols-2 h-full">
-            {/* Text Div*/}
+            {/* Text Div */}
             <div className="md:text-center md:text-left w-full md:relative text-div">
-              <div className="absolute top-1/2 -translate-y-1/2 transform left-1/2 -translate-x-1/2 w-full text-section-div
-              text-center">
+              <div className="absolute top-1/2 -translate-y-1/2 transform left-1/2 -translate-x-1/2 w-full text-section-div text-center">
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-800 w-full slide-heading">
-                  <span className="text-orange-300 orange-slide-text">{slide.title.split(' ')[0]}</span>{' '}
-                  {slide.title.split(' ').slice(1).join(' ')}
+                  <span className="text-orange-300 orange-slide-text">{slide.title.split(" ")[0]}</span>{" "}
+                  {slide.title.split(" ").slice(1).join(" ")}
                 </h1>
                 <p className="mt-2 text-sm md:text-lx text-gray-600 slide-subtitle">{slide.subtitle}</p>
-                <button onClick={() => setIsClicked(!isClicked)}
-                  className={`cursor-pointer mt-4 px-4 pt-2 pb-2 text-white rounded-lg shadow hover:bg-orange-300 transition
-                    ${isClicked ? "bg-orange-300" : "bg-blue-500"}`}>
+
+                {/* Button with toggle */}
+                <button
+                  onClick={() => setIsClicked(!isClicked)}
+                  className={`cursor-pointer mt-4 px-4 pt-2 pb-2 text-white rounded-lg shadow hover:bg-orange-300 transition ${
+                    isClicked ? "bg-orange-300" : "bg-blue-500"
+                  }`}
+                >
                   Learn More
                 </button>
               </div>
