@@ -66,7 +66,7 @@ const Header = () => {
         </div>
 
         {/* Cryptocurrency Prices - Visible on large screens */}
-        <div className="crypto-prices block md:block">
+        <div className="crypto-prices block">
           <CryptoPrices />
         </div>
 
