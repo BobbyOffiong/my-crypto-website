@@ -64,7 +64,7 @@ export default function SlideSection() {
                 className="h-full w-full object-cover object-center" 
               />
               {/* White Background Overlay Inside Image */}
-              <div className="absolute inset-0 bg-white opacity-20"></div>
+              <div className="absolute inset-0 bg-white opacity-40"></div>
             </div>
 
             {/* Dark Texts Over Image */}
