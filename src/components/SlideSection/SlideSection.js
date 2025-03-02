@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useSwipeable } from "react-swipeable";
 import "./SlideSection.css";
 
 const slides = [
@@ -40,13 +41,25 @@ export default function SlideSection() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  // Auto-slide every 8 seconds
   useEffect(() => {
     const interval = setInterval(nextSlide, 8000);
     return () => clearInterval(interval);
   }, []);
 
+  // Handle swipe gestures (left and right)
+  const handlers = useSwipeable({
+    onSwipedLeft: nextSlide,
+    onSwipedRight: prevSlide,
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
+
   return (
-    <div className="relative h-[400px] w-full overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px] SlideSection">
+    <div
+      {...handlers}
+      className="relative h-[400px] w-full overflow-hidden bg-gradient-to-r from-blue-100 to-orange-100 md:h-[500px] SlideSection"
+    >
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -58,10 +71,10 @@ export default function SlideSection() {
           <div className="md:hidden relative w-full h-full">
             {/* Image */}
             <div className="relative w-full h-full">
-              <img 
-                src={slide.image} 
-                alt="Slide Visual" 
-                className="h-full w-full object-cover object-center" 
+              <img
+                src={slide.image}
+                alt="Slide Visual"
+                className="h-full w-full object-cover object-center"
               />
               {/* White Background Overlay Inside Image */}
               <div className="absolute inset-0 bg-white opacity-50"></div>
