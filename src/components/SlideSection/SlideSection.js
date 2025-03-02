@@ -82,7 +82,7 @@ export default function SlideSection() {
 
             {/* Dark Texts Over Image */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-              <h1 className="text-5xl font-bold text-gray-700 text-center">
+              <h1 className="text-5xl font-bold text-gray-800 text-center">
                 <span className="text-orange-300">{slide.title.split(" ")[0]}</span>{" "}
                 {slide.title.split(" ").slice(1).join(" ")}
               </h1>
