@@ -21,7 +21,6 @@
 
 @media (max-width: 375px) {
   .SlideSection{
-    height: 500px;
   }
   .image-container {
     position: relative; /* Ensures text can layer above */
@@ -29,7 +28,6 @@
 
   .image-container img {
     opacity: 0.4;
-    height: 300px ;
   }
 
   .text-section-div {
