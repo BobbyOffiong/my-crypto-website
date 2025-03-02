@@ -61,7 +61,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-1">
             <img src="/images/header/logo.jpg" alt="Logo" className="w-10 h-10 rounded-md" />
             <span className="font-bold text-3xl uppercase bob">Bob</span>
-            <span className="text-3xl text-orange-200 uppercase font-bold Xchange">Xchange</span>
+            <span className="text-3xl text-orange-200 uppercase font-bold Xchange-logo">Xchange</span>
           </Link>
         </div>
 
