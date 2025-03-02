@@ -31,7 +31,7 @@ const slides = [
 
 export default function SlideSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isClicked, setIsClicked] = useState(false); // ✅ Move state inside component
+  const [isClicked, setIsClicked] = useState(false);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -63,7 +63,7 @@ export default function SlideSection() {
                   <span className="text-orange-300 orange-slide-text">{slide.title.split(" ")[0]}</span>{" "}
                   {slide.title.split(" ").slice(1).join(" ")}
                 </h1>
-                <p className="mt-2 text-sm md:text-lx text-gray-600 slide-subtitle">{slide.subtitle}</p>
+                <p className="mt-2 text-sm md:text-lg text-gray-600 slide-subtitle">{slide.subtitle}</p>
 
                 {/* Button with toggle */}
                 <button
@@ -77,13 +77,17 @@ export default function SlideSection() {
               </div>
             </div>
 
-            {/* Image Div */}
-            <div className="w-full h-full md:h-full image-container">
+            {/* Image Div (Now with separate overlay) */}
+            <div className="w-full h-full md:h-full image-container relative">
+              {/* Image */}
               <img
                 src={slide.image}
                 alt="Slide Visual"
-                className="h-[400px] md:h-full w-full object-cover object-center absolute inset-0 bg-white opacity-50 sm:opacity-0"
+                className="h-[400px] md:h-full w-full object-cover object-center"
               />
+
+              {/* White Opacity Overlay (Only on Small Screens) */}
+              <div className="absolute inset-0 bg-white opacity-50 sm:opacity-0 pointer-events-none"></div>
             </div>
           </div>
         </div>
