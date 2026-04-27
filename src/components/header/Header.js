@@ -5,6 +5,7 @@ import Polyglot from "node-polyglot";
 import translations from "../../translations";
 import CryptoPrices from "../CryptoPrices/CryptoPrices";
 
+
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState("en");
@@ -61,7 +62,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-1">
             <img src="/images/header/logo.jpg" alt="Logo" className="w-10 h-10 rounded-md" />
             <span className="font-bold text-3xl uppercase bob">Bob</span>
-            <span className="text-3xl text-orange-200 uppercase font-bold Xchange-logo">Xchange</span>
+            <span className="text-3xl text-orange-200 uppercase font-bold Xchange">Xchange</span>
           </Link>
         </div>
 
@@ -72,13 +73,13 @@ const Header = () => {
 
         {/* Navigation Menu */}
         <nav className="space-x-6 nav-menu">
-          {["home", "about", "services", "pages", "blog", "contact"].map((item) => (
+          {["", "about", "services", "pages", "blog", "contact"].map((item) => (
             <Link
               key={item}
               to={`/${item}`}
               className="hover:text-orange-300 active:text-orange-300 focus:text-orange-300 transition"
             >
-              {polyglot.t(item)}
+              {polyglot.t(item || "home", "about", "services", "pages", "blog", "contact")}
             </Link>
           ))}
         </nav>
@@ -102,13 +103,13 @@ const Header = () => {
                 </button>
               </div>
               <ul className="flex flex-col items-center space-y-4 py-4">
-                {["home", "about", "services", "pages", "blog", "contact"].map((item) => (
+                {["", "about", "services", "pages", "blog", "contact"].map((item) => (
                   <li key={item}>
                     <Link
                       to={`/${item}`}
                       className="hover:text-orange-300 active:text-orange-300 focus:text-orange-300 transition"
                     >
-                      {polyglot.t(item)}
+                      {polyglot.t(item || "home", "about", "services", "pages", "blog", "contact")}
                     </Link>
                   </li>
                 ))}
