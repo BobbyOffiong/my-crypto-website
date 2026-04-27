@@ -1,4 +1,4 @@
-import ServicesPage from "../components/ServicesPage/ServicesPage"
+//import ServicesPage from "../components/ServicesPage/ServicesPage"
 import MovingCoins from "../components/MovingCoins/MovingCoins";
 import GetStarted from "../components/GetStarted/GetStarted";
 import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
@@ -11,7 +11,7 @@ import Footer from "../components/Footer/Footer";
 const Services = () => {
     return (
         <>
-        <ServicesPage />
+    {/*<ServicesPage />*/)
         <MovingCoins />
         <GetStarted />
         <WhyChooseUs />
