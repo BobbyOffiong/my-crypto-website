@@ -4,7 +4,7 @@ import "./output.css";
 import Header from "./components/header/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Services from "./pages/Services";
+//import Services from "./pages/Services";
 //import Pages from "./pages/Pages";
 //import Blog from "./pages/Blog";
 //import Contact from "./pages/Contact";
