@@ -31,7 +31,7 @@ const ServicesPage = () => {
     <>
     {/* HERO */}
     <section
-      className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center bg-gradient-to-r from-sky-400 to-blue-900 overflow-hidden"
+      className="relative h-[405px] md:h-[500px] w-full flex items-center justify-center bg-gradient-to-r from-sky-400 to-blue-900 overflow-hidden"
     >
       <img
         src="/images/HomePage images/GetStartedSection/dotted-world-map.jpg" // Replace with your actual path
